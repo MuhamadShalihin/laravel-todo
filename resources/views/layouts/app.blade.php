@@ -94,17 +94,6 @@
     </div>
 </body>
 <script type="text/javascript">
-function clearStorage() {
 
-let session = sessionStorage.getItem('register');
-
-if (session == null) {
-
-    localStorage.removeItem('remove');
-
-}
-sessionStorage.setItem('register', 1);
-}
-window.addEventListener('load', clearStorage);
 </script>
 </html>
