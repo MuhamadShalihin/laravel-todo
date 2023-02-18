@@ -17,6 +17,6 @@ Step-by-step list
 
 2. Copy the repository link (https://github.com/MuhamadShalihin/laravel-todo)
 
-3. Type `git clone (copied remote repository link)` and press `ENTER`
+3. Type `git clone {copied remote repository link}` and press `ENTER`
 
 4. Type `composer install` in your current working directory and press `ENTER`
