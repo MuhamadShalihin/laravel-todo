@@ -11,7 +11,7 @@
 
 Step-by-step list
 
-1. Navigate to your desired directory to clone the repository
+1. Navigate to your desired directory to clone the repository in the terminal of your preferred IDE
 
    `cd [your-local-device]`
 
