@@ -21,15 +21,10 @@
                     <th scope="col">Name</th>
                     <th scope="col">Created at</th>
                     <th scope="col">Status</th>
-                    {{-- @if (Auth::check())
-                    <th scope="col">Action</th>
-                    @endif --}}
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-
-                {{-- @php $counter=1 @endphp --}}
 
                 @foreach($todos as $todo)
                     <tr>
@@ -43,7 +38,6 @@
                                 <div class="badge bg-warning">Pending</div>
                             @endif
                         </td>
-                        {{-- @if (Auth::check())
                         <td>
                             <a href="todo/{{ $todo->id }}/edit" class="btn btn-info">
                                 <i class="bi bi-pencil"></i>
@@ -51,27 +45,12 @@
                             <form action="{{ route('todo.destroy', ['todo' => $todo->id]) }}" method="post" style="display:inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </form> 
-                        </td>
-                        @endif --}}
-                        <td>
-                            <a href="todo/{{ $todo->id }}/edit" class="btn btn-info">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <form action="{{ route('todo.destroy', ['todo' => $todo->id]) }}" method="post" style="display:inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __('Are you sure you want to delete selected list?') }}')">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </form> 
                         </td>
                     </tr>
-
-                    {{-- @php $counter++; @endphp --}}
 
                 @endforeach
                 </tbody>
