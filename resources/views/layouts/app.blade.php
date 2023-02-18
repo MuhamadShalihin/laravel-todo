@@ -7,11 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -73,8 +72,39 @@
         </nav>
 
         <main class="py-4">
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-6">
+                    @if(session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div>
+                    @endif
+            
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">
+                                {{$error}}
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
             @yield('content')
         </main>
     </div>
 </body>
+<script type="text/javascript">
+function clearStorage() {
+
+let session = sessionStorage.getItem('register');
+
+if (session == null) {
+
+    localStorage.removeItem('remove');
+
+}
+sessionStorage.setItem('register', 1);
+}
+window.addEventListener('load', clearStorage);
+</script>
 </html>
